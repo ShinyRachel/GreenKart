@@ -1,0 +1,29 @@
+package Prime;
+
+public class Numbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int i,j;
+int n= 5;
+
+for(i=2;i<=n;i++)
+{
+	//System.out.println("i:"+i);
+
+for(j=2;j<=i/2;j++)
+{
+System.out.println("j:"+j);
+
+if (i%j==0)
+{
+
+System.out.println(i+":is not  a prime nos");
+}
+else
+{
+	System.out.println(i+"is a prime number");
+}
+	}
+
+}}}

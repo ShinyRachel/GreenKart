@@ -1,0 +1,73 @@
+package examp1;
+import java.util.List;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.time.*;
+
+public class examp1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.get("https://automationexercise.com/signup");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//input[@data-qa='signup-name']")).sendKeys("Test");
+		driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys("uma23Test12345@gmail.com");
+		driver.findElement(By.xpath("//button[@data-qa='signup-button']")).click();
+		
+		WebElement drpCountryEle=driver.findElement(By.xpath("//select[@id='days']"));
+		Select drpCountry=new Select(drpCountryEle);
+		
+		//1) Selecting an option from teh dropdown
+		drpCountry.selectByVisibleText("20");
+//		drpCountry.selectByValue("4"); // use this only if value attribute is present for option tag
+//		drpCountry.selectByIndex(3); //France
+		
+		WebElement drpmonthEle = driver.findElement(By.xpath("//select[@id='months']"));
+		Select drpmonthElem = new Select(drpmonthEle);
+		drpmonthElem.selectByValue("7");
+		
+		// 2) Find total options in dropdown
+		WebElement drpyear = driver.findElement(By.xpath("//select[@id='years']"));
+		Select drpyears = new Select(drpyear);
+		
+		List<WebElement> options=drpyears.getOptions();
+		System.out.println("total number of options:"+options.size());
+		
+		//3) print options in console window
+		/*for(int i=0;i<options.size();i++)
+		{
+			System.out.println(options.get(i).getText());
+		}*/
+		String year = "2010";
+		
+		//using enhanced loop
+		for(WebElement op:options)
+		{
+			if(op.equals(drpyears))
+			{
+				WebElement drpyearsss = driver.findElement(By.xpath("//select[@id='years']"));
+				Select drpyearss = new Select(drpyear);
+			}
+			else
+			{
+				System.out.println("failed");
+			}
+			System.out.println(op.getText());
+		}
+			
+	}
+
+}
+

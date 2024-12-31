@@ -1,0 +1,17 @@
+package Large;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int a[]= {12,5,87,19,300};
+int i;
+for(i=0;i<a.length;i++) {
+
+	if(max<a[i])
+		max=a[i];
+}
+System.out.println("Largest element in given array:");
+				System.out.println(max);
+
+}}

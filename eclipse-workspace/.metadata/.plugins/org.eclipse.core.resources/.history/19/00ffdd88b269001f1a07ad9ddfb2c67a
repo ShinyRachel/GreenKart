@@ -1,0 +1,10 @@
+package star4;
+
+public class star4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+for(i=0;i<=n;i++)
+	}
+
+}

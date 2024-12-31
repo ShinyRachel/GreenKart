@@ -1,0 +1,38 @@
+package examp1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Green {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver=new ChromeDriver();
+		
+		
+			driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+			driver.manage().window().maximize();
+			
+			driver.findElement(By.xpath("(//a[@class='increment'])[2]")).click();
+			driver.findElement(By.xpath("//h4[contains(text(),\"Cauliflower\")]//parent::div//div[3]//button[@type=\"button\"]")).click();
+			driver.findElement(By.xpath("(//a[@class='increment'])[6]")).click();
+			driver.findElement(By.xpath("//h4[contains(text(),\"Tomato\")]//parent::div//div[3]//button[@type=\"button\"]")).click();
+		
+		
+			driver.findElement(By.xpath("//a[@class='cart-icon']")).click();
+			driver.findElement(By.xpath("//div[@class='action-block']//button[@type='button']")).click();
+			WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+			WebElement placeorder=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Place Order']")));
+			placeorder.click();
+			//driver.findElement(By.cssSelector("button[innerText='Place Order']")).click();
+
+		}
+	}
+
+
